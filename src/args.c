@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 16:20:27 by lumiguel          #+#    #+#             */
-/*   Updated: 2024/10/31 19:24:49 by lumiguel         ###   ########.fr       */
+/*   Created: 2024/10/31 16:52:20 by lumiguel          #+#    #+#             */
+/*   Updated: 2024/10/31 17:13:32 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "pipex.h"
 
-#ifndef PIPEX_H
-# define PIPEX_H
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <sys/wait.h>
-# include <unistd.h>
-# include "libft.h"
-# include "get_next_line.h"
-# include "ft_printf.h"
-
-typedef struct s_pipex
+char **get_args(char *cmd)
 {
-	int		fd;
-	int		pid;
-	int		pipe_fd[2];
-	char	*path;
-	char	**args;
-} 			t_pipex;
+	char **args;
 
-char *get_path (char **env, char *cmd);
-char **get_args(char *cmd);
-
-#endif
+	args = ft_split(cmd, ' ');
+	return (args);
+}
