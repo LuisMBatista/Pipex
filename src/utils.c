@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 14:28:33 by lumiguel          #+#    #+#             */
-/*   Updated: 2024/10/25 08:23:45 by lumiguel         ###   ########.fr       */
+/*   Created: 2024/11/06 17:12:59 by lumiguel          #+#    #+#             */
+/*   Updated: 2024/11/06 17:18:28 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+# include 	"pipex.h"
 
-# include <fcntl.h>
-# include <stdarg.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+void fd_in_check(int fd)
+{
+	if (fd == -1) 
+	{
+		perror("Error opening file");
+		exit(1);
+	}
+}
+int path_check(char *b_path, t_pipex pipex)
+{
+	if (b_path == NULL) 
+	{
+		dprintf(2, "Error: Command not found\n");
+		free_2d_array(pipex.args);
+		exit (127);
+	}
+	return (0);
+}
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_strjoin2(char *s1, char *s2);
-long	ft_strlen2(char *s);
-void	unbuff(char *buff);
-
-#endif /* GET_NEXT_LINE_H */

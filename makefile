@@ -21,7 +21,8 @@ LDFLAGS = $(FT_PRINTF) $(FT_GET_NEXT_LINE) $(FT_LIBFT)
 
 SRC_DIR = src
 OBJ_DIR = obj
-SRC = $(SRC_DIR)/main.c $(SRC_DIR)/env.c $(SRC_DIR)/args.c 
+SRC = $(SRC_DIR)/main.c $(SRC_DIR)/env.c $(SRC_DIR)/args.c $(SRC_DIR)/childs.c \
+	  $(SRC_DIR)/utils.c
 OBJ := $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Rules
