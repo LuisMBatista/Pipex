@@ -6,18 +6,18 @@
 /*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:36:35 by lumiguel          #+#    #+#             */
-/*   Updated: 2024/11/06 20:23:42 by lumiguel         ###   ########.fr       */
+/*   Updated: 2024/11/07 13:53:43 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "pipex.h"
+#include "pipex.h"
 
-int first_cmd(t_pipex pipex, char **argv, char **env)
+int	first_cmd(t_pipex pipex, char **argv, char **env)
 {
-	char *b_path;
+	char	*b_path;
 
 	pipex.fd_in = open(argv[1], O_RDONLY);
-	fd_in_check(pipex.fd_in); // Check if input file opened successfully
+	fd_in_check(pipex.fd_in);
 	pipex.args = get_args(argv[2]);
 	b_path = get_path(env, pipex.args[0]);
 	if (!b_path)
@@ -34,17 +34,17 @@ int first_cmd(t_pipex pipex, char **argv, char **env)
 	close(pipex.fd_in);
 	execve(pipex.path, pipex.args, env);
 	perror("Error: execve failed for first command");
-	free_2d_array(pipex.args); // Free args on failure
-	free(pipex.path);          // Free path on failure
+	free_2d_array(pipex.args);
+	free(pipex.path);
 	exit(1);
 }
 
-int second_cmd(t_pipex pipex, char **argv, char **env)
+int	second_cmd(t_pipex pipex, char **argv, char **env)
 {
-	char *b_path;
-	
+	char	*b_path;
+
 	pipex.fd = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	fd_in_check(pipex.fd); // Check if output file opened successfully
+	fd_in_check(pipex.fd);
 	pipex.args = get_args(argv[3]);
 	b_path = get_path(env, pipex.args[0]);
 	if (b_path == NULL)
@@ -60,7 +60,7 @@ int second_cmd(t_pipex pipex, char **argv, char **env)
 	close(pipex.pipe_fd[0]);
 	execve(pipex.path, pipex.args, env);
 	perror("Error: execve failed for second command");
-	free_2d_array(pipex.args); // Free args on failure
-	free(pipex.path);          // Free path on failure
+	free_2d_array(pipex.args);
+	free(pipex.path);
 	exit(1);
 }
