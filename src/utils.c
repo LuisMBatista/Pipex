@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lumiguel <lumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:12:59 by lumiguel          #+#    #+#             */
-/*   Updated: 2024/11/07 13:52:24 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/01/09 14:15:23 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	path_check(char *b_path, t_pipex pipex)
 {
 	if (b_path == NULL)
 	{
-		dprintf(2, "Error: Command not found\n");
+		perror("Error: Command not found\n");
 		free_2d_array(pipex.args);
 		exit (127);
 	}

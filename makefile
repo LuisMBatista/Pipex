@@ -3,7 +3,7 @@ NAME = pipex
 CC = cc
 
 # Library Directories
-FT_PRINTF_DIR = ./ft_printf
+FT_PRINTF_DIR = ./printf
 FT_GET_NEXT_LINE_DIR = ./getnext
 FT_LIBFT_DIR = ./libft
 

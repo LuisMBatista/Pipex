@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lumiguel <lumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 16:52:20 by lumiguel          #+#    #+#             */
-/*   Updated: 2024/11/07 13:51:32 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/01/09 14:15:10 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	argc_check(int argc)
 {
 	if (argc != 5)
 	{
-		dprintf(2, "Error: Wrong number of arguments\n");
+		perror("Error: Wrong number of arguments\n");
 		exit(1);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   childs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lumiguel <lumiguel@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: lumiguel <lumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:36:35 by lumiguel          #+#    #+#             */
-/*   Updated: 2024/11/07 13:53:43 by lumiguel         ###   ########.fr       */
+/*   Updated: 2025/01/09 14:02:06 by lumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	first_cmd(t_pipex pipex, char **argv, char **env)
 	b_path = get_path(env, pipex.args[0]);
 	if (!b_path)
 	{
-		dprintf(2, "Error: Command not found\n");
+		ft_printf("Error: Command not found\n");
 		free_2d_array(pipex.args);
 		exit(127);
 	}
@@ -49,7 +49,7 @@ int	second_cmd(t_pipex pipex, char **argv, char **env)
 	b_path = get_path(env, pipex.args[0]);
 	if (b_path == NULL)
 	{
-		dprintf(2, "Error: Command not found\n");
+		ft_printf("Error: Command not found\n");
 		free_2d_array(pipex.args);
 		exit(127);
 	}
